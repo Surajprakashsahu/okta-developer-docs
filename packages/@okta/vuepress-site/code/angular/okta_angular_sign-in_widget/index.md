@@ -28,7 +28,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
 | Application Name     | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:4200/callback                      |
+| Login redirect URIs  | http://localhost:4200/implicit/callback                      |
 | Logout redirect URIs | http://localhost:4200/login                         |
 
 ## Create an Angular App
@@ -92,6 +92,9 @@ Then, update `src/app/app.component.ts` to handle the `logout()` call:
 
 ```typescript
 // src/app/app.component.ts
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { OktaAuthService } from "@okta/okta-angular";
 
 export class AppComponent {
   isAuthenticated: boolean;
